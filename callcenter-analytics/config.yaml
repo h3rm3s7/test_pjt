@@ -1,0 +1,50 @@
+# CallCenter Analytics Configuration
+
+# LLM Settings
+llm:
+  provider: "openai"  # openai, anthropic, or ollama
+  model: "gpt-4"
+  temperature: 0.7
+  max_tokens: 2000
+  api_key_env: "OPENAI_API_KEY"  # Environment variable name
+
+# Data Settings
+data:
+  input_path: "data/raw"
+  processed_path: "data/processed"
+  sample_path: "data/sample"
+  encoding: "utf-8"
+  date_format: "%Y-%m-%d"
+
+# KPI Thresholds
+kpi_thresholds:
+  performance:
+    aht_target: 300  # seconds
+    fcr_target: 0.85  # 85%
+    service_level_target: 0.80  # 80%
+    occupancy_target: 0.75  # 75%
+  quality:
+    qa_score_target: 90  # out of 100
+    csat_target: 4.0  # out of 5
+    nps_target: 50  # -100 to 100
+    compliance_target: 0.95  # 95%
+
+# Analysis Settings
+analysis:
+  correlation_threshold: 0.3
+  outlier_std: 3
+  min_data_points: 30
+
+# Report Settings
+report:
+  output_path: "outputs"
+  format: "pdf"  # pdf or docx
+  include_charts: true
+  include_raw_data: false
+  logo_path: null
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/app.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
